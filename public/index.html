@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Cigar Price Scout</title>
+  <meta name="description" content="Compare cigar prices across multiple online retailers.">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <div class="agebar">For adults 21+. Price-comparison tool only.</div>
+  <main class="shell">
+    <header class="hero">
+      <div>
+        <div class="eyebrow">PRICE INTELLIGENCE</div>
+        <h1>Cigar Price Scout</h1>
+        <p>Search one cigar. Compare singles, 5-packs and boxes across multiple retailers.</p>
+      </div>
+      <div id="providerBadge" class="provider">Checking search engine…</div>
+    </header>
+
+    <section class="searchPanel">
+      <form id="searchForm">
+        <label for="query">Cigar</label>
+        <div class="searchRow">
+          <input id="query" autocomplete="off" placeholder="e.g. Liga Privada T52 Toro 6 x 52" required>
+          <button type="submit">Search prices</button>
+        </div>
+
+        <div class="controls">
+          <fieldset>
+            <legend>Package</legend>
+            <label><input type="radio" name="pack" value="all" checked><span>All</span></label>
+            <label><input type="radio" name="pack" value="single"><span>Single</span></label>
+            <label><input type="radio" name="pack" value="5pack"><span>5-pack</span></label>
+            <label><input type="radio" name="pack" value="box"><span>Box</span></label>
+          </fieldset>
+          <fieldset>
+            <legend>Matching</legend>
+            <label><input type="radio" name="mode" value="exact" checked><span>Exact</span></label>
+            <label><input type="radio" name="mode" value="similar"><span>Include similar</span></label>
+          </fieldset>
+        </div>
+
+        <details class="retailerChooser">
+          <summary><span id="retailerSummary">Retailers</span></summary>
+          <div id="retailerGrid"></div>
+        </details>
+      </form>
+    </section>
+
+    <section id="state" class="state empty">
+      <div class="emptyIcon">⌕</div>
+      <h2>Ready to compare</h2>
+      <p>Use the full cigar name when you know it. Adding the vitola or dimensions makes matching substantially more precise.</p>
+    </section>
+
+    <section id="resultsSection" hidden>
+      <div class="resultsHead">
+        <div>
+          <div class="eyebrow">LIVE RESULTS</div>
+          <h2 id="resultsTitle"></h2>
+        </div>
+        <div id="stats" class="stats"></div>
+      </div>
+      <div id="bestCards" class="bestCards"></div>
+      <div class="tableWrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Retailer / listing</th><th>Package</th><th>Total</th><th>Per cigar</th><th>Stock</th><th>Match</th><th></th>
+            </tr>
+          </thead>
+          <tbody id="resultsBody"></tbody>
+        </table>
+      </div>
+      <details class="diagnostics">
+        <summary>Retailer search diagnostics</summary>
+        <div id="diagnosticList"></div>
+      </details>
+    </section>
+  </main>
+  <footer>Prices can change at any time. Shipping, taxes, membership pricing, coupons and state restrictions are not included unless the retailer page itself exposes them.</footer>
+  <script src="/app.js"></script>
+</body>
+</html>
