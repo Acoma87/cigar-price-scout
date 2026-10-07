@@ -1,0 +1,23 @@
+services:
+  - type: web
+    name: cigar-price-scout
+    runtime: node
+    plan: free
+    buildCommand: ""
+    startCommand: node server.js
+    healthCheckPath: /health
+    envVars:
+      - key: NODE_VERSION
+        value: "20"
+      - key: CACHE_MINUTES
+        value: "20"
+      - key: DIRECT_SEARCH_CONCURRENCY
+        value: "5"
+      - key: SEARCH_RESULT_LIMIT
+        value: "5"
+      - key: PAGE_FETCH_LIMIT_PER_RETAILER
+        value: "4"
+      - key: SEARCH_STRATEGY_LIMIT
+        value: "5"
+      - key: REQUEST_TIMEOUT_MS
+        value: "10000"
